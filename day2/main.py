@@ -1,14 +1,14 @@
-line = open("input.txt").readline()
+line = open("./day2/input.txt").readline()
 line = line.rstrip()
 
 ranges = [
     tuple(map(int, r.split("-")))
     for r in line.split(",")
 ]
-def part1(ranges):
+def partOne(ranges):
     total = 0
     for entry in ranges:
-        begin, end = entry[0],entry[1]
+        begin, end = entry
         digits = len(str(begin))
         if digits % 2 == 1:
             begin = 10 ** (digits)
@@ -27,7 +27,7 @@ def part1(ranges):
 def part1(ranges):
     total = 0
     for entry in ranges:
-        begin, end = entry[0],entry[1]
+        begin, end = entry
         digits = len(str(begin))
         if digits % 2 == 1:
             begin = 10 ** (digits)
@@ -43,7 +43,7 @@ def part1(ranges):
             sequence = str(int(sequence) + 1)
     return(total)
 
-def part2(ranges):
+def partTwo(ranges):
     total = 0
     for entry in ranges:
         begin,end = entry[0],entry[1]
@@ -54,16 +54,14 @@ def part2(ranges):
                 word = part * int((len(str(currentNumber))/partitionLength))
                 if (int(word) == currentNumber and (int(word) >= begin) and (int(word) <= end)): 
                     total += currentNumber
-                    print(word)
                     break
     return total
 
-
 import time
 startTime = time.time()
-print(f"Part one: {part1(ranges)}")
+print(f"Part one: {partOne(ranges)}")
 print('Execution time part one in seconds: ' + str((time.time() - startTime)))
 
 startTime = time.time()
-print(f"Part one: {part2(ranges)}")
+print(f"Part one: {partTwo(ranges)}")
 print('Execution time part two in seconds: ' + str((time.time() - startTime)))

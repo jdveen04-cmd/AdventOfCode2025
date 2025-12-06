@@ -1,10 +1,12 @@
+path = './day6/input.txt'
+
 class Day6:
     def __init__(self):
         self.arrays: list[list] = []
         self.reader()
         
     def reader(self):
-        lines = [line.rstrip("\n") for line in open("data/day6.txt").readlines()] 
+        lines = [line.rstrip("\n") for line in open(path).readlines()] 
         emptyColumns = self.detectEmptyColumns(lines)
         # divide the line into subparts based on the emptycolumns
         for line in lines:
@@ -15,7 +17,6 @@ class Day6:
                 prev_index = empty_index + 1
             array.append(line[prev_index:])
             self.arrays.append(array)
-
         # Now redistibute the arrays
         newArray:list[list] = []
         while len(newArray) < len(self.arrays[0]):

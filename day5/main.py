@@ -1,3 +1,5 @@
+path = './day5/input.txt'
+
 class Range:
     def __init__(self, begin:int, end:int):
         self.begin = int(begin)
@@ -6,21 +8,21 @@ class Range:
         return(f"Range from {self.begin} to {self.end}")
     def span(self):
         return self.end-self.begin+1 #because it is inclusive
-    def __lt__(self,other):
+    def __lt__(self,other: "Range"):
         return self.begin < other.begin
 
 class dataBase:
     def __init__(self):
-        lines = open('./data/day5.txt').readlines()
         self.ranges: list[Range] = []
         self.IDs: list[int] = []
         self.safeItems = set()
-        self.read(lines)
+        self.read()
 
-    def read(self,lines: list[str]):
-        rangeBool= True
+    def read(self):
+        lines = [line.rstrip() for line in open(path).readlines()]
+        rangeBool= True     #flag to indicate if we are reading ranges or IDs
         for line in lines:
-            if line == "\n":
+            if line == "":
                 rangeBool = False
                 self.handleRanges()
                 continue

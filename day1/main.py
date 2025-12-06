@@ -1,5 +1,4 @@
-lines = open('input.txt').readlines()
-lines = [line.rstrip() for line in lines]
+lines = [line.rstrip() for line in open('./day1/input.txt').readlines()]
 
 def rotate(pos, string):
     direction, count = string[0], int(string[1:])
@@ -17,7 +16,6 @@ def rotate(pos, string):
         raise ValueError("Invalid direction")
     return passes, pos % 100
 
-
 part1, part2, position = 0, 0, 50
 for line in lines:
     passes, position = rotate(position, line)
@@ -25,4 +23,3 @@ for line in lines:
     part2 += passes
 
 print(part1,part2)
-

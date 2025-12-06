@@ -1,12 +1,12 @@
-lines = open('input.txt').readlines()
+path = './day3/input.txt'
 
 def getHighestNumber(battery,fuelCellsLeft):
     return sorted(battery[:len(battery)-fuelCellsLeft],reverse=True)[0]
 
-def calc(lines, fuelCellAmount):
+def calc(fuelCellAmount):
+    lines = [line.rstrip() for line in open(path).readlines()]
     result = 0   
     for line in lines:
-        line = line.rstrip()
         index = 0
         temp = ""
         for fuelCellsLeft in reversed(range(fuelCellAmount)):
@@ -19,6 +19,6 @@ def calc(lines, fuelCellAmount):
 
 import time
 startTime = time.time()
-print("part1: ", calc(lines,2))
+print("part1: ", calc(2))
 print(time.time()-startTime)
-print("part2: ", calc(lines,12))
+print("part2: ", calc(12))
