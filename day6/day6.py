@@ -6,7 +6,6 @@ class Day6:
     def reader(self):
         lines = [line.rstrip("\n") for line in open("data/day6.txt").readlines()] 
         emptyColumns = self.detectEmptyColumns(lines)
-
         # divide the line into subparts based on the emptycolumns
         for line in lines:
             array = []

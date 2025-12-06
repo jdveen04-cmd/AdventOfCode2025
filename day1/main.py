@@ -1,4 +1,5 @@
-lines = open('./data/day1.txt').readlines()
+lines = open('input.txt').readlines()
+lines = [line.rstrip() for line in lines]
 
 def rotate(pos, string):
     direction, count = string[0], int(string[1:])

@@ -55,20 +55,20 @@ class dataBase:
             totalRanges += range.span()
         return totalRanges
     
-def part1():
+def partOne():
     db = dataBase()
     return db.checkItems()
 
-def part2():
+def partTwo():
     db = dataBase()
     return db.countRanges()
 
 import time
 startTime = time.time()
-print(f"Part one: {part1()}")
+print(f"Part one: {partOne()}")
 print('Execution time part one in seconds: ' + str((time.time() - startTime)))
 
 startTime1 = time.time()
-print(f"Part two: {part2()}")
+print(f"Part two: {partTwo()}")
 print('Execution time part two in seconds: ' + str((time.time() - startTime1)))
 print('Execution time both parts: ' + str((time.time() - startTime)))

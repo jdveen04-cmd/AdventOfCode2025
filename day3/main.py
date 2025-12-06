@@ -1,4 +1,4 @@
-lines = open('./data/day3.txt').readlines()
+lines = open('input.txt').readlines()
 
 def getHighestNumber(battery,fuelCellsLeft):
     return sorted(battery[:len(battery)-fuelCellsLeft],reverse=True)[0]
