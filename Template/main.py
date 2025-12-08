@@ -1,4 +1,4 @@
-path = './Template/input.txt'
+path = 'adventOfCode2025/template/input.txt'
 
 def partOne():
     lines = open(path).readlines()
